@@ -1,0 +1,11 @@
+[Unit]
+Description=Rancher Deployment Script
+After=network.target
+
+[Service]
+User=codespace
+WorkingDirectory=/workspaces/rancherkube
+ExecStart=/bin/bash /workspaces/rancherkube/setup_ibm_k8s.sh
+
+[Install]
+WantedBy=multi-user.target

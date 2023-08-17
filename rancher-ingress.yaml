@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rancher-ingress
+spec:
+  rules:
+    - host: rancher-csde-us-east-1-bx-2cba914de749aaebfddd504e97c6e47b-0000.us-east.containers.appdomain.cloud
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: rancher-service  # Name of the Rancher service in your deployment
+                port:
+                  number: 80
